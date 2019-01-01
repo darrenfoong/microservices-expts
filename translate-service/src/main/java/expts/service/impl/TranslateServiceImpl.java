@@ -10,21 +10,32 @@ public class TranslateServiceImpl implements TranslateService {
   @Value("${service.translate.default.unknown}")
   private String unknown;
 
+  @Value("${server.port}")
+  private String port;
+
   @Override
   public String translate(TranslateRequest translateRequest) {
+    String result = port + ": ";
+
     if (translateRequest.getBody().equals("Hello")) {
       switch (translateRequest.getTargetLanguage()) {
         case "de":
-          return "Guten Tag";
+          result += "Guten Tag";
+          break;
         case "en":
-          return "Hello";
+          result += "Hello";
+          break;
         case "fr":
-          return "Bonjour";
+          result += "Bonjour";
+          break;
         default:
-          return unknown;
+          result += unknown;
+          break;
       }
     } else {
-      return unknown;
+      result += unknown;
     }
+
+    return result;
   }
 }
