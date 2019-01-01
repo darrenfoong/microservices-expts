@@ -2,7 +2,9 @@ package expts.service.impl;
 
 import expts.request.TranslateRequest;
 import expts.service.TranslateService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TranslateServiceImpl implements TranslateService {
   @Override
   public String translate(TranslateRequest translateRequest) {
