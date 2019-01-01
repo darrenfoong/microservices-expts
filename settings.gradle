@@ -2,6 +2,6 @@ rootProject.name = 'microservices-expts'
 
 include 'gateway'
 include 'naming-server'
-// include 'config-server'
+include 'config-server'
 include 'hello-service'
 include 'translate-service'

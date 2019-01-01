@@ -2,10 +2,14 @@ package expts.service.impl;
 
 import expts.request.TranslateRequest;
 import expts.service.TranslateService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TranslateServiceImpl implements TranslateService {
+  @Value("${service.translate.default.unknown}")
+  private String unknown;
+
   @Override
   public String translate(TranslateRequest translateRequest) {
     if (translateRequest.getBody().equals("Hello")) {
@@ -17,10 +21,10 @@ public class TranslateServiceImpl implements TranslateService {
         case "fr":
           return "Bonjour";
         default:
-          return "???";
+          return unknown;
       }
     } else {
-      return "???";
+      return unknown;
     }
   }
 }
