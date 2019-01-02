@@ -1,5 +1,16 @@
 # Microservice Experiments
 
+Download and setup Keycloak: https://www.baeldung.com/spring-boot-keycloak
+
+Go to http://localhost:8080/auth
+
+```
+Realm: ExptsKeycloak
+  Valid Redirect URIs: http://localhost:8400/*
+Resource: gateway
+Roles: [user]
+```
+
 ```
 gradle build
 gradle :config-server:bootRun

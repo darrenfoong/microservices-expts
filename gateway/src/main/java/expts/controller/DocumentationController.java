@@ -2,14 +2,14 @@ package expts.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 @Controller
+@Primary
 public class DocumentationController implements SwaggerResourcesProvider {
-  // For now, Swagger 2 works only with Zuul, not Gateway
-
   @Override
   public List<SwaggerResource> get() {
     List<SwaggerResource> resources = new ArrayList<>();

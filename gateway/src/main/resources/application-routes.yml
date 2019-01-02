@@ -1,0 +1,8 @@
+zuul:
+  routes:
+    hello:
+      path: /hello/**
+      serviceId: hello-service
+    translate:
+      path: /translate/**
+      serviceId: translate-service
