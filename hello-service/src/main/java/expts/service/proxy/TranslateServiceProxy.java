@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient(name = "translate-service")
 public interface TranslateServiceProxy {
-  @PostMapping("/api/translate/translate")
+  @PostMapping("/translate")
   public String translate(TranslateRequest translateRequest);
 }

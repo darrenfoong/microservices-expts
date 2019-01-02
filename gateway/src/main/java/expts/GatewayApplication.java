@@ -10,7 +10,15 @@ import org.springframework.context.annotation.Bean;
 public class GatewayApplication {
   @Bean
   public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-    return builder.routes().route(r -> r.path("/api/hello/**").uri("lb://hello-service")).build();
+    return builder
+        .routes()
+        .route(r -> r.path("/hello/**").filters(f -> f.stripPrefix(1)).uri("lb://hello-service"))
+        .route(
+            r ->
+                r.path("/translate/**")
+                    .filters(f -> f.stripPrefix(1))
+                    .uri("lb://translate-service"))
+        .build();
   }
 
   public static void main(String[] args) {

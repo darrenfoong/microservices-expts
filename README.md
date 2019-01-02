@@ -12,4 +12,4 @@ gradle :hello-service:bootRun
 
 Eureka: http://localhost:8761/
 
-Gateway: http://localhost:8400/api/hello/hello/
+Gateway: http://localhost:8400/hello/hello/
